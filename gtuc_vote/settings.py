@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     # packages
     'widget_tweaks',
-    'import_export',
 
 
 

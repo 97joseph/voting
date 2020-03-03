@@ -1,2 +1,4 @@
 # voting for Colleges 
-# Tree
+# A small django app for voting in institutions
+# Add Election, Add Positions, Candidates, and Voters.
+# 

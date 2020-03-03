@@ -158,7 +158,8 @@ def voting(request, election_id):
 
         
         
-        
+# A VIEW FOR STUDENTS/USERS TO CAST THEIR VOTE
+# IT CHECKS IF CURRENT USER IS A STUDENT OR HAS VOTED   
 @login_required
 def vote(request, election_id):
     if not request.user.is_student == False:
@@ -237,6 +238,8 @@ def results(request, election_id):
   return render(request, 'stu/results.html', { 'election': election })
 
 
+# USING ZINGCHART TO DISPLAY RESULTS 
+# TO USERS AFTER VOTE HAS BEEN CASTED
 def resultsData(request, obj):
     votedata = []
 
@@ -251,12 +254,14 @@ def resultsData(request, obj):
 
 
 
-
+# A SIMPLE LOGOUT VIEW TO LOGOUT STUDENTS AFTER VOTING
 def logout_view(request):
     logout(request)
     
 
-
+# A VIEW TO GENERATE REPORT FOR USERS 
+# A DETAILED REPORT STATING THE NUMBER
+# OF STUDENTS THAT HAS VOTED
 def report(request):
 
     election_details = Election.objects.all()
