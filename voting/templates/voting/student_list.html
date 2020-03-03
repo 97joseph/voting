@@ -1,0 +1,54 @@
+
+
+{% extends 'base.html' %}
+
+
+{% block title %} GTUC | Students {% endblock title %}
+
+{% block content %}
+        
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><a href="{% url 'student-add' %}" class="btn btn-info">Add Student</a></h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Student ID</th>
+              <th>Level</th>
+              <th>Faculty</th>
+              <th>Session</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+            <tr>
+              <td><a href="">{{ student.user.get_full_name }}</a></td>
+              <td>{{ student.user.email }}</td>
+              <td>{{ student.user.username }}</td>
+              <td>{{ student.level }}</td>
+              <td>{{ student.faculty }}</td>
+              <td>{{ student.session }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+{% endblock content %}

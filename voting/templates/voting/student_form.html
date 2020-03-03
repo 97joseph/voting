@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} GTUC | Add Students {% endblock title %}
+
+{% block content %}
+        
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Add Student</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <form method="POST">{% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Username</label>
+                            {% render_field form.username class="form-control" placeholder="Username" %}
+                            <small class="f-s-12">{{ form.username.errors }}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            {% render_field form.email class="form-control" placeholder="Email" %}
+                            <small class="f-s-12">{{ form.email.errors }}</small>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            {% render_field form.firstname class="form-control" placeholder="First Name" %}
+                            <small class="f-s-12">{{ form.firstname.errors }}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            {% render_field form.lastname class="form-control" placeholder="Last Name" %}
+                            <small class="f-s-12">{{ form.lastname.errors }}</small>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Faculty</label>
+                            {% render_field form.faculty class="form-control" %}
+                            <small class="f-s-12">{{ form.faculty.errors }}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Session</label>
+                            {% render_field form.session class="form-control" %}
+                            <small class="f-s-12">{{ form.session.errors }}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Level</label>
+                            {% render_field form.level class="form-control"  %}
+                            <small class="f-s-12">{{ form.level.errors }}</small>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Password</label>
+                            {% render_field form.password1 class="form-control" placeholder="Password" %}
+                            <small class="f-s-12">{{ form.password1.errors }}</small>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Password Confirmation</label>
+                            {% render_field form.password2 class="form-control" placeholder="Confirm Password" %}
+                            <small class="f-s-12">{{ form.password2.errors }}</small>
+                        </div>
+                    </div>
+                </div>
+            
+                <button type="submit" class="btn btn-info btn-fill pull-right">Add Student</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+{% endblock content %}

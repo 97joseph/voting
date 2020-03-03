@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} GTUC | Add Position {% endblock title %}
+
+{% block content %}
+        
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Add Position</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <form method="POST">{% csrf_token %}
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            
+                            {% render_field form.election class="form-control" placeholder="Position Name" %}
+                            <small class="f-s-12">{{ form.election.errors }}</small>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            
+                            {% render_field form.text class="form-control" placeholder="Position Name" %}
+                            <small class="f-s-12">{{ form.text.errors }}</small>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Add Position</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+{% endblock content %}

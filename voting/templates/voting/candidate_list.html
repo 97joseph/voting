@@ -1,0 +1,52 @@
+
+
+{% extends 'base.html' %}
+
+
+{% block title %} GTUC | Candidate {% endblock title %}
+
+{% block content %}
+        
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><a href="{% url 'candidate-add' %}" class="btn btn-info">Add Candidate</a></h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Level</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for candidate in candidates %}
+
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ candidate.name }}</td>
+                    <td>{{ candidate.position }}</td>
+                    <td>{{ candidate.level }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+{% endblock content %}
